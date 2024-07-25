@@ -9,12 +9,12 @@ Get content of current package.json file
 def get_package_json_content(path: str):
     os_path = Path(path)
     if not os_path.is_dir():
-        SystemExit("Please provide a valid file path to a directory")
+        raise SystemExit("Please provide a valid file path to a directory")
     package_json = os_path / 'package.json'
     if not package_json.is_file():
-        SystemExit("There is no package.json file in the specified directory: " + str(os_path))
+        raise SystemExit("There is no package.json file in the specified directory: " + str(os_path))
     content = package_json.read_text()
-    data = json.load(content)
+    data = json.loads(content)
     return data
 
 '''
@@ -38,5 +38,5 @@ def download_repo(git_url: str, path: str):
     try:
         git.Repo.clone_from(git_url, dependencies_folder)
     except git.exc.GitError as err:
-        SystemExit(err)
+        raise SystemExit(err)
     return
