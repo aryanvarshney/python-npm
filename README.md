@@ -18,6 +18,10 @@ The goal is to recreate the npm commands in Python. Currently, only add and inst
 1. Create a CLI environment variable (ex. $python-npm) to hold the command `python {path/to/repo/core/python_npm.py}`
 2. Use $python-npm -h for argument usage help
 
+Example:
+`$python-npm add . --package tiny-tarball`
+`$python-npm install ./repo`
+
 ## Authors
 
 Aryan Varshney: 
