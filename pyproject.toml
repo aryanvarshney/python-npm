@@ -1,0 +1,18 @@
+[project]
+name = "python-npm-aryanvarshney"
+version = "0.0.1"
+authors = [
+  { name="Aryan Varshney", email="aryanv@gmail.com" },
+]
+description = "A node package manager in Python"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/aryanvarshney/python-npm"
+Issues = "https://github.com/aryanvarshney/python-npm/issues"

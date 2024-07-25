@@ -24,10 +24,11 @@ def add(package_and_version: str, path: str):
         version_pattern = re.compile("^([0-9]{1,3}\.){2}[0-9]{1,3}(-(.*))$") 
         if not version_pattern.match(package_version):
             raise ValueError("Invalid input: the version number you have provided does not follow the correct pattern. Note: You must provide all major, minor, and patch numbers when including version")
-    package_metadata = npm_registry_request(package_name, package_version)
     curr_package_json = get_package_json_content(path)
+    package_metadata = npm_registry_request(package_name, package_version)
     if "dependencies" in curr_package_json:
         curr_package_json["dependencies"][package_metadata["name"]] = package_metadata["version"]
     else:
         curr_package_json["dependencies"] = {package_metadata["name"]: package_metadata["version"]}
     update_package_json_content(path, curr_package_json)
+    
